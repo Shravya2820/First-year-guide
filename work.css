@@ -1,71 +1,79 @@
 /* General Body and Main Container Styles */
 body {
-  font-family: "Poppins", sans-serif;
-  margin: 50px 50px 0 50px;
-  background-color: #faf9f6;
-  display: flex;
-  flex-direction: column;
-  min-height: 95vh;
-  position: static; /* Ensures body doesn't cause issues with fixed elements if added later */
+    font-family: "Poppins", sans-serif;
+    margin: 50px 50px 0 50px;
+    background-color: #faf9f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+    position: static; /* Ensures body doesn't cause issues with fixed elements if added later */
 }
 
 .main {
-  flex: 1; /* Allows main content to grow and push footer down */
-  padding-bottom: 30px; /* Space above footer */
+    flex: 1; /* Allows main content to grow and push footer down */
+    padding-bottom: 30px; /* Space above footer */
 }
 
 /* Heading Styles */
 h1 {
-  font-size: 3rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
+    font-size: 3rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 h2 {
-  font-size: 2rem;
-  color: #555;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 20px;
+    font-size: 2rem;
+    color: #555;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.Sem-title.left-align-sem {
+    text-align: left;
+}
+.Sem-title.right-align-sem {
+    text-align: right;
 }
 
 .Sem-title {
-  font-size: 2.5rem; /* Slightly larger for Semester titles */
-  color: #0056b3; /* A primary color */
-  margin-top: 40px;
-  margin-bottom: 20px;
+    font-size: 2.5rem; /* Slightly larger for Semester titles */
+    color: #0056b3; /* A primary color */
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 /* Horizontal Rule (Separator) */
 hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-  margin: 20px 0;
-  clear: both; /* Essential to clear floats from .First and .Second */
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+    margin: 20px 0;
+    clear: both; /* Essential to clear floats from .First and .Second for elements AFTER this hr */
 }
 
 /* Specific text styling */
 .year {
-  color: midnightblue;
-  font-weight: bold;
+    color: midnightblue;
+    font-weight: bold;
 }
 
 /* Homepage Cycle Section Styles (.First and .Second divs) */
 .First {
-    float: right; /* Physics Cycle on right */
+    float: left; /* Physics Cycle on left - CHANGED as requested */
     width: 48%; /* Adjust width as needed */
     margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .Second {
-    float: left; /* Chemistry Cycle on left */
+    float: right; /* Chemistry Cycle on right - CHANGED as requested */
     width: 48%; /* Adjust width as needed */
     margin-bottom: 20px;
-}
-
-.First, .Second {
     background-color: #ffffff;
     padding: 25px;
     border-radius: 10px;
@@ -82,14 +90,13 @@ hr {
 
 /* Image styling within cycle sections on homepage */
 .tile-image {
-  height: 200px; /* Fixed height for consistency */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Cover the area, cropping if necessary */
-  border-radius: 8px;
-  margin-bottom: 15px; /* Space below image */
-  /* Keep float:left and margin-right for the text to wrap around it */
-  float: left;
-  margin-right: 25px;
+    height: 200px; /* Fixed height for consistency */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-radius: 8px;
+    margin-bottom: 15px; /* Space below image */
+    float: left; /* Keep float:left and margin-right for the text to wrap around it */
+    margin-right: 25px;
 }
 
 /* Inline Text Link on Homepage */
@@ -107,10 +114,10 @@ hr {
 
 /* Footer Styles */
 footer {
-  text-align: right;
-  color: midnightblue;
-  padding: 20px 0;
-  margin-top: auto; /* Pushes footer to the bottom */
+    text-align: right;
+    color: midnightblue;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
 }
 
 /* Breadcrumb Navigation Styles (Used on cycle pages and subject pages) */
@@ -197,6 +204,22 @@ footer {
     transform: translateY(-5px); /* Lift effect on hover */
     box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Stronger shadow on hover */
 }
+
+/* New style for Student Hub section wrapper on homepage */
+.student-hub-card-wrapper {
+    display: flex;             /* Use flexbox to center its content */
+    justify-content: center;   /* Center horizontally */
+    margin-top: 30px;          /* Space above this section */
+    margin-bottom: 30px;       /* Space below this section */
+}
+
+/* Ensure the subject-link inside this wrapper retains its desired card width */
+.student-hub-card-wrapper .subject-link {
+    width: auto; /* Let the browser determine width based on content/max-width */
+    min-width: 280px; /* Keep consistent with other subject links */
+    max-width: 320px; /* Keep consistent with other subject links */
+}
+
 
 /* Resource Grouping (Used on PYQ, QB, Notes pages) */
 .resource-group {
