@@ -28,44 +28,151 @@ footer {
 .tile-image{
   float:left;
   height:200px;
-  margin-right:50x;
+  margin-right:50px; /* Corrected '50x' to '50px' */
   margin-bottom: 10px;
 }
-.sem{
-  width:45%
-}
-.first{
+/* Corrected class names to match HTML capitalization and keep your original float layout */
+.First{
+    /* If you want this to float right, keep this. Otherwise, consider flexbox for cleaner layout. */
+    /* For now, keeping your original float as requested indirectly by maintaining the structure */
     float: right;
 }
-hr{
-    clear: both;
-}
-
-.second{
+.Second{
   float: left;
 }
+hr{
+    clear: both; /* Essential to clear floats after the div */
+}
 
-@media (max-width:680px){
-    .h1{
+/* --- NEW STYLE FOR INLINE LINKS --- */
+.inline-link {
+    color: midnightblue; /* Or any other color you prefer for inline links */
+    text-decoration: underline; /* Standard underline for text links */
+    font-weight: bold; /* Make it stand out slightly */
+}
+.inline-link:hover {
+    color: #007bff; /* Change color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+/* --- Styles for Physics/Chemistry Cycle Pages (keep these) --- */
+.breadcrumb ul {
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #e2e6ea;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb li {
+    display: inline;
+    font-size: 0.9rem;
+}
+
+.breadcrumb li + li::before {
+    content: ">";
+    padding: 0 8px;
+    color: #666;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: normal;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.subject-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.subject-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: calc(33% - 20px);
+    min-width: 280px;
+}
+
+.subject-tile {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subject-tile h3 {
+    margin-top: 0;
+    color: #0056b3;
     font-size: 1.5rem;
-    text-align: center;
-  }
-  .h2{
-    font-size: 1rem;
-    text-align: center;
-    display: block;
-  }
-  .sem{
-    width: 100%;
-    text-align: justify;
-    margin-bottom: 30px;
-    display: block;
+}
 
-  }
-  .sem-image{
-    width:100%;
-    margin-bottom: 10px;
-    display: block;
-    object-fit: cover;
-  }
+.subject-tile p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.subject-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --- Responsive Adjustments (Keep these, and ensure First/Second floats are handled) --- */
+@media (max-width: 680px) {
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    h2 {
+        font-size: 1rem;
+        text-align: center;
+        display: block;
+    }
+    /* Styles for .First and .Second on mobile - remove float */
+    .First, .Second {
+        float: none;
+        width: 100%;
+        text-align: justify;
+        margin-bottom: 30px;
+        display: block;
+    }
+    .tile-image {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+        display: block;
+        object-fit: cover;
+    }
+    .subject-link {
+        width: 100%;
+    }
+    .subject-tile {
+        padding: 15px;
+    }
+    .breadcrumb ul {
+        text-align: center;
+    }
+    .breadcrumb li + li::before {
+        padding: 0 5px;
+    }
 }
