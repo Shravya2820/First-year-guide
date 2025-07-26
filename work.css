@@ -1,3 +1,4 @@
+/* General Body and Main Container Styles */
 body {
   font-family: "Poppins", sans-serif;
   margin: 50px 50px 0 50px;
@@ -5,58 +6,114 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 95vh;
-  position: static;
-}
-.main {
-  flex: 1;
+  position: static; /* Ensures body doesn't cause issues with fixed elements if added later */
 }
 
+.main {
+  flex: 1; /* Allows main content to grow and push footer down */
+  padding-bottom: 30px; /* Space above footer */
+}
+
+/* Heading Styles */
 h1 {
   font-size: 3rem;
-}
-h2{
-    font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
+h2 {
+  font-size: 2rem;
+  color: #555;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.Sem-title {
+  font-size: 2.5rem; /* Slightly larger for Semester titles */
+  color: #0056b3; /* A primary color */
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Horizontal Rule (Separator) */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  margin: 20px 0;
+  clear: both; /* Essential to clear floats from .First and .Second */
+}
+
+/* Specific text styling */
+.year {
+  color: midnightblue;
+  font-weight: bold;
+}
+
+/* Homepage Cycle Section Styles (.First and .Second divs) */
+.First {
+    float: right; /* Physics Cycle on right */
+    width: 48%; /* Adjust width as needed */
+    margin-bottom: 20px;
+}
+
+.Second {
+    float: left; /* Chemistry Cycle on left */
+    width: 48%; /* Adjust width as needed */
+    margin-bottom: 20px;
+}
+
+.First, .Second {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.First p, .Second p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-top: 0; /* Remove default top margin from paragraph */
+}
+
+/* Image styling within cycle sections on homepage */
+.tile-image {
+  height: 200px; /* Fixed height for consistency */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the area, cropping if necessary */
+  border-radius: 8px;
+  margin-bottom: 15px; /* Space below image */
+  /* Keep float:left and margin-right for the text to wrap around it */
+  float: left;
+  margin-right: 25px;
+}
+
+/* Inline Text Link on Homepage */
+.inline-link {
+    color: #007bff; /* Standard link blue */
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.inline-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: none;
+}
+
+/* Footer Styles */
 footer {
   text-align: right;
   color: midnightblue;
-}
- .year{
-  color: midnightblue;
-}
-.tile-image{
-  float:left;
-  height:200px;
-  margin-right:50px; /* Corrected '50x' to '50px' */
-  margin-bottom: 10px;
-}
-/* Corrected class names to match HTML capitalization and keep your original float layout */
-.First{
-    /* If you want this to float right, keep this. Otherwise, consider flexbox for cleaner layout. */
-    /* For now, keeping your original float as requested indirectly by maintaining the structure */
-    float: right;
-}
-.Second{
-  float: left;
-}
-hr{
-    clear: both; /* Essential to clear floats after the div */
+  padding: 20px 0;
+  margin-top: auto; /* Pushes footer to the bottom */
 }
 
-/* --- NEW STYLE FOR INLINE LINKS --- */
-.inline-link {
-    color: midnightblue; /* Or any other color you prefer for inline links */
-    text-decoration: underline; /* Standard underline for text links */
-    font-weight: bold; /* Make it stand out slightly */
-}
-.inline-link:hover {
-    color: #007bff; /* Change color on hover */
-    text-decoration: none; /* Remove underline on hover */
-}
-
-
-/* --- Styles for Physics/Chemistry Cycle Pages (keep these) --- */
+/* Breadcrumb Navigation Styles (Used on cycle pages and subject pages) */
 .breadcrumb ul {
     list-style-type: none;
     padding: 10px 0;
@@ -65,6 +122,7 @@ hr{
     text-align: left;
     border-radius: 5px;
     margin-bottom: 20px;
+    padding-left: 15px; /* Padding for the breadcrumbs */
 }
 
 .breadcrumb li {
@@ -82,26 +140,30 @@ hr{
     text-decoration: none;
     color: #007bff;
     font-weight: normal;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .breadcrumb a:hover {
     text-decoration: underline;
+    color: #0056b3;
 }
 
-.subject-list {
+/* Subject List / Resource Categories (Used on cycle pages and subject resource pages) */
+.subject-list, .resource-categories {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between subject tiles */
+    justify-content: center; /* Center tiles if they don't fill the row */
     padding: 20px 0;
 }
 
 .subject-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    width: calc(33% - 20px);
-    min-width: 280px;
+    text-decoration: none; /* Remove underline from the entire tile link */
+    color: inherit; /* Inherit text color */
+    display: block; /* Make the link take full tile space */
+    width: calc(33% - 20px); /* Approx 3 tiles per row (33.33% - gap) */
+    min-width: 280px; /* Minimum width for tiles before wrapping */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .subject-tile {
@@ -111,17 +173,18 @@ hr{
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 100%;
-    display: flex;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+    height: 100%; /* Ensure all tiles are same height if content varies */
+    display: flex; /* Use flexbox for vertical centering */
     flex-direction: column;
     justify-content: center;
 }
 
 .subject-tile h3 {
     margin-top: 0;
-    color: #0056b3;
+    color: #0056b3; /* Darker blue for subject code */
     font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .subject-tile p {
@@ -131,48 +194,149 @@ hr{
 }
 
 .subject-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Stronger shadow on hover */
 }
 
-/* --- Responsive Adjustments (Keep these, and ensure First/Second floats are handled) --- */
-@media (max-width: 680px) {
+/* Resource Grouping (Used on PYQ, QB, Notes pages) */
+.resource-group {
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    width: 100%; /* Take full width within its flex container */
+    box-sizing: border-box;
+}
+
+.resource-group h3 {
+    color: #0056b3;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Individual Resource Links (e.g., PDF download links) */
+.resource-link {
+    display: block; /* Make each link take full width */
+    background-color: #ffffff;
+    color: #333; /* Darker text for better readability */
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none; /* No underline by default */
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    font-size: 1.1rem;
+    text-align: left; /* Align text to the left */
+}
+
+.resource-link:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last link in a group */
+}
+
+.resource-link:hover {
+    background-color: #e9ecef; /* Lighter background on hover */
+    transform: translateX(5px); /* Slight slide effect on hover */
+    color: #0056b3; /* Change text color on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Tablets */
     h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .Sem-title {
+        font-size: 2rem;
+    }
+    /* Subject tiles adjust to 2 per row */
+    .subject-link {
+        width: calc(50% - 20px);
+    }
+    .First, .Second {
+        width: 100%; /* Make homepage sections full width on tablets */
+        float: none; /* Remove float */
+        margin: 0 auto 30px auto; /* Center and add space */
+    }
+    .tile-image {
+        float: none; /* Remove float from image */
+        margin: 0 auto 15px auto; /* Center image */
+        display: block; /* Make image a block element */
+    }
+}
+
+@media (max-width: 680px) { /* Mobile Phones */
+    body {
+        margin: 20px 15px 0 15px; /* Reduced margin on small screens */
+    }
+    h1 {
+        font-size: 1.8rem;
         text-align: center;
     }
     h2 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         text-align: center;
         display: block;
     }
-    /* Styles for .First and .Second on mobile - remove float */
+    .Sem-title {
+        font-size: 1.6rem;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    /* Homepage sections on mobile */
     .First, .Second {
-        float: none;
         width: 100%;
-        text-align: justify;
-        margin-bottom: 30px;
-        display: block;
+        padding: 15px;
     }
     .tile-image {
-        float: none;
         width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 10px;
-        display: block;
-        object-fit: cover;
+        height: auto; /* Auto height to maintain aspect ratio */
+        margin: 0 auto 15px auto;
     }
+    .First p, .Second p {
+        font-size: 1rem;
+    }
+
+    /* Subject tiles adjust to 1 per row */
     .subject-link {
         width: 100%;
     }
     .subject-tile {
         padding: 15px;
     }
+    .subject-tile h3 {
+        font-size: 1.3rem;
+    }
+    .subject-tile p {
+        font-size: 0.9rem;
+    }
+
+    /* Breadcrumbs on mobile */
     .breadcrumb ul {
         text-align: center;
+        padding-left: 0;
     }
     .breadcrumb li + li::before {
         padding: 0 5px;
+    }
+
+    /* Resource group/links on mobile */
+    .resource-group {
+        padding: 15px;
+    }
+    .resource-group h3 {
+        font-size: 1.4rem;
+    }
+    .resource-link {
+        font-size: 0.95rem;
+        padding: 10px 12px;
     }
 }
