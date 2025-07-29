@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #555;
     text-align: center;
     margin-top: 5px;
@@ -266,7 +266,6 @@ footer {
     transform: translateX(5px); /* Slight slide effect on hover */
     color: #0056b3; /* Change text color on hover */
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 992px) { /* Tablets */
