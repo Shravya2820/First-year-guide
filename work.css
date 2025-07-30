@@ -16,40 +16,35 @@ body {
 
 /* Heading Styles */
 h1 {
-    font-size: 3rem;
-    color: #333;
+    font-family: 'Montserrat', sans-serif; /* New font for H1 */
+    font-size: 3.8rem; /* Larger and more impactful */
+    font-weight: 700; /* Bold from Montserrat */
+    color: #003366; /* Deep, professional blue for NMAMIT heading */
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Slightly more space below */
+    letter-spacing: -0.03em; /* Tighten up letter spacing slightly for a modern look */
+    line-height: 1.1; /* Adjust line height for better appearance on multiple lines if any */
+    text-transform: uppercase; /* Optional: Make it uppercase for more emphasis */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #555;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 20px;
 }
-.Sem-title.left-align-sem {
-    text-align: left;
-}
-.Sem-title.right-align-sem {
-    text-align: right;
-}
 
-.Sem-title {
-    font-size: 2.5rem; /* Slightly larger for Semester titles */
-    color: #0056b3; /* A primary color */
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
+/* Removed .Section-title and .Sem-title as they are no longer used in this layout */
 
 /* Horizontal Rule (Separator) */
 hr {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-    margin: 20px 0;
-    clear: both; /* Essential to clear floats from .First and .Second for elements AFTER this hr */
+    margin: 30px 0; /* Slightly more margin for main HR */
+    clear: both; /* Essential to clear floats if any */
 }
 
 /* Specific text styling */
@@ -58,48 +53,18 @@ hr {
     font-weight: bold;
 }
 
-/* Homepage Cycle Section Styles (.First and .Second divs) */
-.First {
-    float: left; /* Physics Cycle on left - CHANGED as requested */
-    width: 48%; /* Adjust width as needed */
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+/* --- REMOVED: .First, .Second styles as they are no longer used for main layout --- */
 
-.Second {
-    float: right; /* Chemistry Cycle on right - CHANGED as requested */
-    width: 48%; /* Adjust width as needed */
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-.First p, .Second p {
-    color: #444;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    margin-top: 0; /* Remove default top margin from paragraph */
-}
-
-/* Image styling within cycle sections on homepage */
-.tile-image {
-    height: 200px; /* Fixed height for consistency */
+/* Image styling within the subject-tile cards */
+.subject-tile img { /* Targeted specifically for images within these cards */
+    height: 120px; /* Consistent height for card images */
     width: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the area, cropping if necessary */
+    object-fit: contain; /* Ensure full image is visible, not cropped */
     border-radius: 8px;
     margin-bottom: 15px; /* Space below image */
-    float: left; /* Keep float:left and margin-right for the text to wrap around it */
-    margin-right: 25px;
 }
 
-/* Inline Text Link on Homepage */
+/* Inline Text Link (for text links within paragraphs, etc.) */
 .inline-link {
     color: #007bff; /* Standard link blue */
     text-decoration: underline;
@@ -155,15 +120,18 @@ footer {
     color: #0056b3;
 }
 
-/* Subject List / Resource Categories (Used on cycle pages and subject resource pages) */
-.subject-list, .resource-categories {
+/* Subject List / Resource Categories (Used for main nav and cycle pages) */
+.resource-categories { /* This now controls your main nav layout on homepage */
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     gap: 20px; /* Space between subject tiles */
     justify-content: center; /* Center tiles if they don't fill the row */
     padding: 20px 0;
+    margin: 0 auto; /* Center the entire flex container */
+    max-width: 1200px; /* Limit max width for desktop for better aesthetics */
 }
 
+/* Individual Card Links (Physics, Chemistry, Student Hub, and other subject/resource cards) */
 .subject-link {
     text-decoration: none; /* Remove underline from the entire tile link */
     color: inherit; /* Inherit text color */
@@ -172,6 +140,13 @@ footer {
     min-width: 280px; /* Minimum width for tiles before wrapping */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
+
+/* This targets ONLY the main navigation cards on the homepage */
+.homepage-main-nav .subject-link {
+    width: calc(33.33% - 20px); /* Ensure 3 cards per row on large screens */
+    max-width: 380px; /* Give them a bit more room than regular subject tiles */
+}
+
 
 .subject-tile {
     background-color: #ffffff;
@@ -205,23 +180,8 @@ footer {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Stronger shadow on hover */
 }
 
-/* New style for Student Hub section wrapper on homepage */
-.student-hub-card-wrapper {
-    display: flex;             /* Use flexbox to center its content */
-    justify-content: center;   /* Center horizontally */
-    margin-top: 30px;          /* Space above this section */
-    margin-bottom: 30px;       /* Space below this section */
-}
 
-/* Ensure the subject-link inside this wrapper retains its desired card width */
-.student-hub-card-wrapper .subject-link {
-    width: auto; /* Let the browser determine width based on content/max-width */
-    min-width: 280px; /* Keep consistent with other subject links */
-    max-width: 320px; /* Keep consistent with other subject links */
-}
-
-
-/* Resource Grouping (Used on PYQ, QB, Notes pages) */
+/* Resource Grouping (Used on PYQ, QB, Notes pages, and Student Hub sub-sections) */
 .resource-group {
     background-color: #f8f8f8;
     border: 1px solid #e0e0e0;
@@ -242,7 +202,7 @@ footer {
     padding-bottom: 10px;
 }
 
-/* Individual Resource Links (e.g., PDF download links) */
+/* Individual Resource Links (e.g., PDF download links, sub-links in Student Hub) */
 .resource-link {
     display: block; /* Make each link take full width */
     background-color: #ffffff;
@@ -267,6 +227,91 @@ footer {
     color: #0056b3; /* Change text color on hover */
 }
 
+/* Styling for descriptions under resource links (like Academic Calendar) */
+.resource-description {
+    font-size: 0.9em; /* Smaller font size than the link */
+    color: #666; /* Softer color */
+    margin-top: 5px; /* Space above the description */
+    margin-bottom: 10px; /* Space below if there's another link */
+    padding-left: 15px; /* Indent slightly to visually separate from link */
+    line-height: 1.4;
+}
+
+/* Adjustments for resource-link to ensure it plays well with description */
+.resource-group li {
+    /* Ensure list items can contain both link and description properly */
+    margin-bottom: 0; /* Remove default margin from list item if it interferes */
+    display: block; /* Make the li a block so resource-link and description stack */
+}
+
+/* Remove margin-bottom from the resource-link itself to let the description define spacing */
+.resource-link {
+    margin-bottom: 0; /* Reset this if it was adding too much space */
+}
+
+/* Styling for Instagram handles within resource links */
+.instagram-handle {
+    display: block; /* Makes it go to a new line */
+    font-size: 0.8em; /* Smaller than the main text */
+    color: #888; /* A lighter color */
+    margin-top: 3px; /* Small space above it */
+}
+
+/* Adjustment for resource-link that contains an instagram handle */
+.resource-group li .resource-link {
+    padding: 10px 15px; /* Adjust padding if needed for multi-line content */
+    text-align: center; /* Center text if desired for these specific links */
+}
+
+
+/* About Me Section Styling */
+.about-me-section {
+    max-width: 800px; /* Limit width for readability */
+    margin: 30px auto; /* Center the section and add vertical space */
+    padding: 25px;
+    background-color: #e6f2ff; /* Light blue background for emphasis */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center; /* Center the text */
+}
+
+.about-me-section p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px; /* Space below paragraph */
+}
+
+/* Social Links within About Me */
+.social-links {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Note paragraph styling within About Me */
+.about-me-section .note {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 0; /* Ensure no extra space below the note */
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 992px) { /* Tablets */
     h1 {
@@ -275,22 +320,18 @@ footer {
     h2 {
         font-size: 1.8rem;
     }
-    .Sem-title {
-        font-size: 2rem;
+    .homepage-main-nav .subject-link {
+        width: calc(50% - 20px); /* 2 cards per row on tablets */
     }
-    /* Subject tiles adjust to 2 per row */
-    .subject-link {
+    .subject-link { /* General subject-link, also goes to 2 per row */
         width: calc(50% - 20px);
     }
-    .First, .Second {
-        width: 100%; /* Make homepage sections full width on tablets */
-        float: none; /* Remove float */
-        margin: 0 auto 30px auto; /* Center and add space */
+    .subject-tile img {
+        height: 100px; /* Slightly smaller images on tablets */
     }
-    .tile-image {
-        float: none; /* Remove float from image */
-        margin: 0 auto 15px auto; /* Center image */
-        display: block; /* Make image a block element */
+    .about-me-section {
+        margin: 20px auto;
+        padding: 20px;
     }
 }
 
@@ -307,29 +348,14 @@ footer {
         text-align: center;
         display: block;
     }
-    .Sem-title {
-        font-size: 1.6rem;
-        margin-top: 30px;
-        margin-bottom: 15px;
+    .homepage-main-nav .subject-link {
+        width: 100%; /* 1 card per row on mobile */
     }
-
-    /* Homepage sections on mobile */
-    .First, .Second {
+    .subject-link { /* General subject-link, also goes to 1 per row */
         width: 100%;
-        padding: 15px;
     }
-    .tile-image {
-        width: 100%;
-        height: auto; /* Auto height to maintain aspect ratio */
-        margin: 0 auto 15px auto;
-    }
-    .First p, .Second p {
-        font-size: 1rem;
-    }
-
-    /* Subject tiles adjust to 1 per row */
-    .subject-link {
-        width: 100%;
+    .subject-tile img {
+        height: 80px; /* Smaller images on mobile */
     }
     .subject-tile {
         padding: 15px;
@@ -361,28 +387,12 @@ footer {
         font-size: 0.95rem;
         padding: 10px 12px;
     }
-}
-/* Add this to your work.css file, preferably near other list styles */
-.subject-tile ul {
-    list-style-type: none; /* Removes bullets */
-    padding: 0; /* Removes default padding */
-    margin-top: 15px; /* Adds a bit of space above the list */
-    text-align: left; /* Aligns the list items to the left within the tile */
-}
-
-.subject-tile li {
-    margin-bottom: 8px; /* Space between list items */
-}
-/* Styling for Instagram handles within resource links */
-.instagram-handle {
-    display: block; /* Makes it go to a new line */
-    font-size: 0.8em; /* Smaller than the main text */
-    color: #888; /* A lighter color */
-    margin-top: 3px; /* Small space above it */
-}
-
-/* Adjustments for resource-link to ensure it plays well with multiple lines */
-.resource-link {
-    line-height: 1.3; /* Adjust line height for multiline content */
-    text-align: center; /* Center text if desired for these specific links */
+    .about-me-section {
+        margin: 15px auto;
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+    .social-links a {
+        font-size: 1rem;
+    }
 }

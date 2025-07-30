@@ -1,0 +1,111 @@
+/* Styles specific to the About Me page */
+
+body {
+    /* These global body styles are partly inherited from work.css, */
+    /* but these specific ones are for the About Me page's background and default text */
+    font-family: 'Poppins', sans-serif; /* Keep consistent with main site's body font */
+    line-height: 1.6;
+    color: #333;
+    margin: 0; /* Let .main handle the overall page margins */
+    background-color: #f4f4f4; /* Specific background for this page */
+}
+
+/* Ensure the main content area has some padding */
+.main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* Other .main styles (flex, min-height) are inherited from work.css */
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto; /* Center the container with vertical margin */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Specific heading styles for this page (overriding work.css's general h1/h2 if needed) */
+h1, h2 {
+    color: #0056b3; /* A professional blue */
+    font-family: 'Montserrat', sans-serif; /* Consistent heading font */
+}
+
+/* Adjust the main h1 on this page to be slightly smaller than the homepage h1 */
+.container h1 {
+    font-size: 2.5rem; /* Suitable size for an internal page's main heading */
+    text-transform: none; /* Do not uppercase this specific h1 */
+    letter-spacing: normal; /* Normal letter spacing */
+    text-shadow: none; /* No text shadow */
+    margin-bottom: 20px;
+}
+
+.motivation {
+    background-color: #e9f7ef;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.resources strong {
+    color: #d9534f; /* A reddish color for emphasis */
+}
+
+.highlight {
+    background-color: #fff3cd;
+    padding: 8px;
+    border-left: 4px solid #ffc107;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.personal-touch {
+    font-style: italic;
+    color: #555;
+}
+
+/* Responsive adjustments for this specific page */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+    }
+    .container h1 {
+        font-size: 2rem;
+    }
+    .motivation, .highlight {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    .container h1 {
+        font-size: 1.5rem;
+    }
+    body {
+        margin: 0; /* Override any body margins from work.css for small screens */
+    }
+}
+/* Add these styles to your existing about-me/style.css file */
+
+ul {
+    list-style-type: disc; /* Use a disk for the bullet */
+    margin-left: 25px; /* Indent the list from the left */
+    padding-left: 0;
+    margin-bottom: 20px; /* Space after the list */
+}
+
+ul li {
+    margin-bottom: 8px; /* Space between individual list items */
+    font-size: 1.05rem; /* Slightly adjust font size for readability */
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Existing styles for .container, h1, h2, .motivation, .highlight, .personal-touch, etc. should remain as they are. */
