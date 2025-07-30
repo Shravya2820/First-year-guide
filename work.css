@@ -362,3 +362,27 @@ footer {
         padding: 10px 12px;
     }
 }
+/* Add this to your work.css file, preferably near other list styles */
+.subject-tile ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Removes default padding */
+    margin-top: 15px; /* Adds a bit of space above the list */
+    text-align: left; /* Aligns the list items to the left within the tile */
+}
+
+.subject-tile li {
+    margin-bottom: 8px; /* Space between list items */
+}
+/* Styling for Instagram handles within resource links */
+.instagram-handle {
+    display: block; /* Makes it go to a new line */
+    font-size: 0.8em; /* Smaller than the main text */
+    color: #888; /* A lighter color */
+    margin-top: 3px; /* Small space above it */
+}
+
+/* Adjustments for resource-link to ensure it plays well with multiple lines */
+.resource-link {
+    line-height: 1.3; /* Adjust line height for multiline content */
+    text-align: center; /* Center text if desired for these specific links */
+}
