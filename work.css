@@ -57,7 +57,6 @@ hr {
 
 /* Image styling within the subject-tile cards */
 .subject-tile img { /* Targeted specifically for images within these cards */
-    height: 120px; /* Consistent height for card images */
     width: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure full image is visible, not cropped */
     border-radius: 8px;
@@ -355,7 +354,7 @@ footer {
         width: 100%;
     }
     .subject-tile img {
-        height: 80px; /* Smaller images on mobile */
+        height: auto; /* Smaller images on mobile */
     }
     .subject-tile {
         padding: 15px;
